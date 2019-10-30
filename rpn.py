@@ -1,5 +1,9 @@
 #!/bin/bash/env python3
 import readline
+import sys
+
+def red(skk): print("\033[91m {}\033[00m" .format(skk)) #red for negatives
+def green(skk): print("\033[92m {}\033[00m" .format(skk)) #green for positives
 
 def calculate(arg):
 	stack = list()
@@ -9,41 +13,54 @@ def calculate(arg):
 			arg1 = stack.pop()
 			result = arg1 + arg2
 			stack.append(result)
-			print(result)
+			print((lambda: green(result), lambda: red(result)) [result < 0] ())
 		elif token == '-':
 			arg2 = stack.pop()
 			arg1 = stack.pop()
 			result = arg1 - arg2
 			stack.append(result)
-			print(result)
+			print((lambda: green(result), lambda: red(result)) [result < 0] ())
 		elif token == '*':
 			arg2 = stack.pop()
 			arg1 = stack.pop()
 			result = arg1 * arg2
 			stack.append(result)
-			print(result)
+			print((lambda: green(result), lambda: red(result)) [result < 0] ())
 		elif token == '/':
 			arg2 = stack.pop()
 			arg1 = stack.pop()
 			result = arg1 / arg2
 			stack.append(result)
-			print(result)
+			print((lambda: green(result), lambda: red(result)) [result < 0] ())
 		elif token == '%':
 			arg2 = stack.pop()
 			arg1 = stack.pop()
 			result = arg1 % arg2
 			stack.append(result)
-			print(result)
+			print((lambda: green(result), lambda: red(result)) [result < 0] ())
 		else:
 			stack.append(int(token))
-		print(stack)
+		#print(stack)
 	if len(stack) != 1:
-		raise TypeError('Malformed input: ' + arg)
+		raise TypeError
 	return stack.pop()
 
 def main():
-	#while True:
-	calculate(input('rpn calc> '))
+	try:
+		while True:
+			calculate(input("\033[1;36;40m INPUT: "))
+	except ValueError:
+		print("Input two integers then an operation")
+		sys.exit()
+	except EOFError:
+		print("You terminated the program")
+		sys.exit()
+	except TypeError:
+		print("Malformed input: input two integers then an operation")
+		sys.exit()
+	except:
+		print("An error occured...")
+		sys.exit()
 	return
 
 if __name__ == '__main__':
