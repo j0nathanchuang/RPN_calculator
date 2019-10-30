@@ -1,4 +1,5 @@
 #!/bin/bash/env python3
+import readline
 
 def calculate(arg):
 	stack = list()
@@ -8,36 +9,41 @@ def calculate(arg):
 			arg1 = stack.pop()
 			result = arg1 + arg2
 			stack.append(result)
+			print(result)
 		elif token == '-':
 			arg2 = stack.pop()
 			arg1 = stack.pop()
 			result = arg1 - arg2
 			stack.append(result)
+			print(result)
 		elif token == '*':
 			arg2 = stack.pop()
 			arg1 = stack.pop()
 			result = arg1 * arg2
 			stack.append(result)
+			print(result)
 		elif token == '/':
 			arg2 = stack.pop()
 			arg1 = stack.pop()
 			result = arg1 / arg2
 			stack.append(result)
+			print(result)
 		elif token == '%':
 			arg2 = stack.pop()
 			arg1 = stack.pop()
 			result = arg1 % arg2
 			stack.append(result)
+			print(result)
 		else:
 			stack.append(int(token))
-		#print(stack)
+		print(stack)
 	if len(stack) != 1:
 		raise TypeError('Malformed input: ' + arg)
 	return stack.pop()
 
 def main():
-	while True:
-		calculate(input('rpn calc> '))
+	#while True:
+	calculate(input('rpn calc> '))
 	return
 
 if __name__ == '__main__':
