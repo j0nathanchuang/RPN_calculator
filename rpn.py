@@ -15,7 +15,7 @@ def calculate(arg):
 			stack.append(result)
 		else:
 			stack.append(int(token))
-		print(stack)
+		#print(stack)
 	if len(stack) != 1:
 		raise TypeError('Malformed input: ' + arg)
 	return stack.pop()
@@ -23,6 +23,7 @@ def calculate(arg):
 def main():
 	while True:
 		calculate(input('rpn calc> '))
+	return
 
 if __name__ == '__main__':
 	main()
