@@ -1,32 +1,21 @@
 #!/bin/bash/env python3
 import readline
 import sys
+import operator
 
 def red(skk): print("\033[91m {}\033[00m" .format(skk)) #red for negatives
 def green(skk): print("\033[92m {}\033[00m" .format(skk)) #green for positives
 
-def add(a, b):
-	return a + b
-
-def sub(a, b):
-	return a - b
-
-def multi(a, b):
-	return a * b
-
 def divide(a, b):
 	return a / b
 
-def mod(a, b):
-	return a % b
-
 #hashtable
 operators = {
-	'+': add,
-	'-': sub,
-	'*': multi,
+	'+': operator.add,
+	'-': operator.sub,
+	'*': operator.mul,
 	'/': divide,
-	'%': mod
+	'%': operator.mod
 }
 
 def calculate(arg):
@@ -41,41 +30,7 @@ def calculate(arg):
 			arg1 = stack.pop()
 			result = function(arg1, arg2)
 			stack.append(result)
-		'''
-		if token == '+':
-			arg2 = stack.pop()
-			arg1 = stack.pop()
-			result = arg1 + arg2
-			stack.append(result)
-			print((lambda: green(result), lambda: red(result)) [result < 0] ())
-		elif token == '-':
-			arg2 = stack.pop()
-			arg1 = stack.pop()
-			result = arg1 - arg2
-			stack.append(result)
-			print((lambda: green(result), lambda: red(result)) [result < 0] ())
-		elif token == '*':
-			arg2 = stack.pop()
-			arg1 = stack.pop()
-			result = arg1 * arg2
-			stack.append(result)
-			print((lambda: green(result), lambda: red(result)) [result < 0] ())
-		elif token == '/':
-			arg2 = stack.pop()
-			arg1 = stack.pop()
-			result = arg1 / arg2
-			stack.append(result)
-			print((lambda: green(result), lambda: red(result)) [result < 0] ())
-		elif token == '%':
-			arg2 = stack.pop()
-			arg1 = stack.pop()
-			result = arg1 % arg2
-			stack.append(result)
-			print((lambda: green(result), lambda: red(result)) [result < 0] ())
-		else:
-			stack.append(int(token))
 		#print(stack)
-		'''
 	if len(stack) != 1:
 		raise TypeError
 	return stack.pop()
