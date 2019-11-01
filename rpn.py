@@ -6,15 +6,12 @@ import operator
 def red(skk): print("\033[91m {}\033[00m" .format(skk)) #red for negatives
 def green(skk): print("\033[92m {}\033[00m" .format(skk)) #green for positives
 
-def divide(a, b):
-	return a / b
-
 #hashtable
 operators = {
 	'+': operator.add,
 	'-': operator.sub,
 	'*': operator.mul,
-	'/': divide,
+	'/': operator.floordiv,
 	'%': operator.mod
 }
 
@@ -38,7 +35,8 @@ def calculate(arg):
 def main():
 	try:
 		while True:
-			calculate(input("\033[1;36;40m INPUT: "))
+			result = calculate(input("\033[1;36;40m INPUT: "))
+			print((lambda: green(result), lambda: red(result)) [result < 0] ())
 	except ValueError:
 		print("Input two integers then an operation")
 		sys.exit()
