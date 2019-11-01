@@ -1,4 +1,4 @@
-# csprag-f19-rpn [![Build Status](https://travis-ci.com/j0nathanchuang/rpn_calculator.svg?token=bPxBuNyAfQYqybM5zqQ1&branch=master)](https://travis-ci.com/j0nathanchuang/rpn_calculator) [![forthebadge](https://forthebadge.com/images/badges/ages-18.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+# RPN_calculator [![Build Status](https://travis-ci.com/j0nathanchuang/rpn_calculator.svg?token=bPxBuNyAfQYqybM5zqQ1&branch=master)](https://travis-ci.com/j0nathanchuang/rpn_calculator) [![forthebadge](https://forthebadge.com/images/badges/ages-18.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 EECS 201 RPN Calculator
 
 This project is for advanced homework #8 for EECS 201.
