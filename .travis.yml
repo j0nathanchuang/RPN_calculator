@@ -1,2 +1,2 @@
 language: python
-script: ./test_rpn.py
+script: python3 test_rpn.py
