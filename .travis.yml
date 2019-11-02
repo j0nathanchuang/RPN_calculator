@@ -1,5 +1,6 @@
 language: python
-before-install: pip install coverage
 script:
   - python3 test_rpn.py
+  - pip install coverage
   - coverage run test_rpn.py
+  - coverage report
