@@ -1,5 +1,4 @@
 #!/bin/bash/env python3
-import readline
 import sys
 import operator
 
